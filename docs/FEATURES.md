@@ -3,7 +3,7 @@
 ## Features in this project
 
 * Angular 6 front-end with Material Design
-* Firebase back-end (0Auth authentication and NoSQL database)
+* Golang back-end (Authentication and blockchain)
 * Automated documentation (compodoc)
 * Home page
 * About page
@@ -11,18 +11,15 @@
 * Misc page
 * 404 page
 * Save email (keep in touch)
-* Authentication (Anonymous, Email, Google, Twitter, Facebook and Github)
-* Verification email after signup
+* Authentication (Email)
 * Auth Guard
 * Profile
 * Profile image animation
 * Profile settings
-* Password reset
 * Alerts
 * 360 view
 * Multiple pipes
 * Carousel
-* Translatations
 * Tests
 * Back to top button
 * Loading spinner and progress bar

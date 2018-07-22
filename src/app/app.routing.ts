@@ -19,7 +19,6 @@ import { SignupComponent } from './components/auth/signup.component';
 import { SigninComponent } from './components/auth/signin.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileSettingsComponent } from './components/profile/profile-settings.component';
-import { MessagesComponent } from './components/messages/messages.component';
 
 // Protected
 import { AuthGuardService } from './components/shared';
@@ -33,7 +32,6 @@ const appRoutes: Routes = [
   { path: 'about', component: AboutMeComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'misc', component: MiscComponent },
-  // { path: 'misc', loadChildren: './components/misc/misc.module#MiscModule' },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: SigninComponent },
 
@@ -41,7 +39,6 @@ const appRoutes: Routes = [
   // { path: 'profile/:uid/:name', component: ProfileComponent, canActivate: [AuthGuardService] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
   { path: 'profile-settings', component: ProfileSettingsComponent, canActivate: [AuthGuardService] },
-  { path: 'messages', component: MessagesComponent, canActivate: [AuthGuardService] },
   { path: '**', component: PageNotFoundComponent }
 ];
 
