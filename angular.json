@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngxmatfire": {
+    "ngxmatgo": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngxmatfire",
+            "outputPath": "dist/ngxmatgo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngxmatfire:build"
+            "browserTarget": "ngxmatgo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngxmatfire:build:production"
+              "browserTarget": "ngxmatgo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngxmatfire:build"
+            "browserTarget": "ngxmatgo:build"
           }
         },
         "test": {
@@ -93,7 +93,7 @@
         }
       }
     },
-    "ngxmatfire-e2e": {
+    "ngxmatgo-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -101,7 +101,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ngxmatfire:serve"
+            "devServerTarget": "ngxmatgo:serve"
           }
         },
         "lint": {
@@ -116,5 +116,5 @@
       }
     }
   },
-  "defaultProject": "ngxmatfire"
+  "defaultProject": "ngxmatgo"
 }
