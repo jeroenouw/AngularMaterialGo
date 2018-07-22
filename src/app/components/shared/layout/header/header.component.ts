@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import * as firebase from 'firebase';
 
 import { AuthService, AlertService, UserService } from '../../services';
 

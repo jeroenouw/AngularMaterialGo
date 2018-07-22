@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { NgForm, FormsModule, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
-import * as firebase from 'firebase';
-
-import { Profile, AuthService, AlertService, UserService } from '../shared';
+import { AuthService, AlertService, UserService } from '../shared';
 
 @Component({
   selector: 'app-profile-settings',
@@ -13,8 +10,8 @@ import { Profile, AuthService, AlertService, UserService } from '../shared';
 })
 export class ProfileSettingsComponent implements OnInit {
   uid = firebase.auth().currentUser.uid;
-  displayName: string = "Your username";
-  bio: any = "Your bio";
+  displayName: string = 'Your username';
+  bio: any = 'Your bio';
 
   constructor(
     private authService: AuthService,

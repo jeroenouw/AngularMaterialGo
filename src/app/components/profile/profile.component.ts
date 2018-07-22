@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
-import * as firebase from 'firebase';
-
-import { User, Profile, UserService, AlertService } from '../shared';
+import { UserService, AlertService } from '../shared';
 
 @Component({
   selector: 'app-profile',
@@ -32,8 +30,8 @@ export class ProfileComponent implements OnInit {
 
   fullImagePath: string;
   profileTitle: string = 'My profile';
-  displayName: string = "Your username";
-  bio: any = "Your bio";
+  displayName: string = 'Your username';
+  bio: any = 'Your bio';
 
   state = 'small';
 

@@ -17,9 +17,7 @@
 * Profile image animation
 * Profile settings
 * Alerts
-* 360 view
 * Multiple pipes
-* Carousel
 * Tests
 * Back to top button
 * Loading spinner and progress bar
@@ -32,7 +30,6 @@
 * Mat Menu
 * Mat Sidenav
 * Mat Toolbar
-* Mat Table
 * Mat Stepper
 * Mat Expansion panel
 * Mat Card

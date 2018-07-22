@@ -25,7 +25,6 @@ import {
   AuthGuardService,
   AuthService,
   BlockchainService,
-  WindowService
 } from './components/shared';
 
 // Main
@@ -71,8 +70,7 @@ import { EmailMeComponent } from './components/email-me/email-me.component';
     AlertService,
     AuthGuardService,
     AuthService,
-    BlockchainService,
-    WindowService
+    BlockchainService
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
