@@ -2,7 +2,7 @@
 
 ## Quick start
 
-First clone this repo: `git clone https://github.com/jeroenouw/AngularMaterialFirebase.git`.  
+First clone this repo: `git clone https://github.com/jeroenouw/AngularMaterialGo.git`.  
 Change directory to this project  
 Run `npm install` to install all the dependencies.  
 Run `npm start` to run this project. This will run with the AoT Compiler.  

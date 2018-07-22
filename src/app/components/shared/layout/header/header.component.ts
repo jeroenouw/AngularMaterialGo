@@ -27,7 +27,7 @@ export class HeaderComponent {
     {
       icon: 'link',
       title: 'Fork on Github',
-      link: 'https://github.com/jeroenouw/AngularMaterialFirebase'
+      link: 'https://github.com/jeroenouw/AngularMaterialGo'
     },
   ];
 
