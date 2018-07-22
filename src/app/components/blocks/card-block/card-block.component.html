@@ -1,0 +1,20 @@
+<mat-card class="contentCard">
+  <mat-card-header>
+    <mat-card-title><h1>{{titleCard}} {{numberCard}}</h1></mat-card-title>
+    <mat-card-subtitle>{{subTitleCard}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="angularImage">
+  <img mat-card-image [src]="angularImage">
+  <img mat-card-image [src]="angularImage">
+  <mat-card-content>
+    <p>
+      {{contentCard}}
+    </p>
+  </mat-card-content>
+
+  <br /><br />
+
+  <mat-card-actions class="buttonCard">
+    <a button mat-raised-button href="https://github.com/jeroenouw/AngularMaterialFirebase" target="_blank"><h3>Fork on Github</h3></a>
+  </mat-card-actions>
+</mat-card>

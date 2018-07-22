@@ -1,0 +1,89 @@
+<!-- Carousel -->
+<app-carousel></app-carousel>
+
+<div id="content">
+  <mat-card>
+    <h1>Misc</h1>
+    <h4>Various components ready to use in your own project.</h4>
+    
+    <hr>
+    
+    <!-- Miscellaneous material components -->
+    <h3>Two-way data binding :</h3>
+    <mat-form-field class="full-width">
+    <input matInput placeholder="I am feeling good!" type="text" [(ngModel)]="answer"/>
+    </mat-form-field>
+
+    <mat-toolbar>Repeat yourself : {{answer}}</mat-toolbar>
+
+    <hr>
+
+    <h3>mat Datepicker : </h3>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <hr>
+
+    <h3>mat Sidenav : </h3>
+    <mat-sidenav-container class="container">
+      <mat-sidenav #sidenav class="sidenav">
+        This is the sidenav!
+      </mat-sidenav>
+
+      <div class="sidenav-content">
+        <button type="button" mat-button (click)="sidenav.open()">
+          Open sidenav!
+        </button>
+      </div>
+
+    </mat-sidenav-container>
+
+    <hr>
+   
+    <h3>mat Tooltip : </h3>
+    <span matTooltip="This is a tooltip">Hover me!</span>
+
+    <br/><hr>
+
+    <h3>mat Slide toggle : </h3>
+    <mat-slide-toggle class="margin">
+      Click me!
+    </mat-slide-toggle>
+
+    <br/><hr><br/>
+
+    <app-stepper></app-stepper>
+
+    <!-- Temporary disabled -->
+    <!-- <app-table></app-table> -->
+    
+    <hr>
+
+    <app-expansion-panel></app-expansion-panel>
+
+    <hr>
+
+    <!-- Pipes -->
+    <app-change-detection></app-change-detection>
+
+    <hr>
+
+    <app-async-observable-pipe></app-async-observable-pipe>
+
+    <hr>
+    
+    <app-json-pipe></app-json-pipe>
+    
+    <hr>
+
+    <app-currency-pipe></app-currency-pipe>
+
+
+  </mat-card>
+</div>
+
+<!-- 360 virtual reality component -->
+<app-virtreal></app-virtreal>

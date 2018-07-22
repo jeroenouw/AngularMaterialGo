@@ -1,0 +1,44 @@
+.profile { 
+    padding: 20px;
+}
+
+mat-card {
+    width: 400px;
+    height: 460px;
+    margin: 100px auto;
+}
+
+mat-card-header{
+    display: inline;
+}
+
+mat-card-header-text {
+    margin: 0 auto;
+}
+
+mat-card-title {
+    text-align: center;
+}
+
+.avatar {
+    margin: 10px auto;
+    width: 120px;
+}
+
+.avatar img {
+    width: 120px;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.button {
+    position: absolute;
+    bottom: 35px;
+    margin: 0 auto;
+}

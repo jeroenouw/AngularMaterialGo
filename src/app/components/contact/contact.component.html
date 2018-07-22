@@ -1,0 +1,43 @@
+<div id="content">
+  <mat-card>
+    <h1>Contact us</h1>
+      <form class="form" (ngSubmit)="onSubmit(c)" #c="ngForm" >
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Company" id="company" name="company" value="Google" ngModel required>
+      </mat-form-field>
+
+      <table class="full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="full-width">
+          <input matInput placeholder="First name" id="firstname" name="firstname" ngModel required>
+        </mat-form-field></td>
+        <td><mat-form-field class="full-width">
+          <input matInput placeholder="Last name" id="lastname" name="lastname" ngModel required>
+        </mat-form-field></td>
+      </tr></table>
+
+      <p>
+        <mat-form-field class="full-width">
+          <textarea matInput placeholder="Address" value="Streetname 12a" id="address" name="address" ngModel required></textarea>
+        </mat-form-field>
+      </p>
+
+      <table class="full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="full-width">
+          <input matInput placeholder="City" id="city" name="city" ngModel required>
+        </mat-form-field></td>
+        <td><mat-form-field class="full-width">
+          <input matInput #postalCode maxlength="6" id="postal" name="postal" placeholder="Zip Code" value="2900TY" ngModel required>
+          <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
+        </mat-form-field></td>
+      </tr></table>      
+      <p>
+        <mat-form-field class="full-width">
+          <textarea matInput placeholder="Your message" id="message" name="message" ngModel required></textarea>
+        </mat-form-field>
+      </p>
+      <br />
+      <button mat-raised-button type="submit" [disabled]="c.invalid">Submit</button>
+
+    </form>
+  </mat-card>
+</div>
