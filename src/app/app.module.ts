@@ -5,11 +5,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatInputModule, MatSnackBarModule,
          MatToolbarModule, MatDialogModule, MatSidenavModule, MatNativeDateModule,
          MatCardModule, MatTabsModule, MatIconModule } from '@angular/material';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 // Modules
-import { MessagesModule } from './components/messages/messages.module';
 import { PipesModule } from './pipes/pipes.module';
 import { BlocksModule } from './components/blocks/blocks.module';
 import { AuthModule } from './components/auth/auth.module';
@@ -25,14 +24,13 @@ import {
   AlertService,
   AuthGuardService,
   AuthService,
+  BlockchainService,
   WindowService
 } from './components/shared';
 
 // Main
 import { AppComponent } from './app.component';
-import { AppRoutingModule,
-         // routingComponents
-         } from './app.routing';
+import { AppRoutingModule } from './app.routing';
 
 // Other components
 import { HomeComponent } from './components/home/home.component';
@@ -51,7 +49,6 @@ import { EmailMeComponent } from './components/email-me/email-me.component';
     FooterComponent,
     PageNotFoundComponent,
     EmailMeComponent
-    // routingComponents
   ],
   imports: [
     BrowserModule,
@@ -60,10 +57,8 @@ import { EmailMeComponent } from './components/email-me/email-me.component';
     MatToolbarModule, MatDialogModule, MatSidenavModule, MatNativeDateModule,
     MatCardModule, MatTabsModule, MatIconModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    MessagesModule,
     PipesModule,
     BlocksModule,
     AuthModule,
@@ -76,6 +71,7 @@ import { EmailMeComponent } from './components/email-me/email-me.component';
     AlertService,
     AuthGuardService,
     AuthService,
+    BlockchainService,
     WindowService
   ],
   schemas: [
