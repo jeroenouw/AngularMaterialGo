@@ -37,6 +37,7 @@ import { AboutMeComponent } from './components/about-me/about-me.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { PageNotFoundComponent } from './components/not-found/not-found.component';
 import { EmailMeComponent } from './components/email-me/email-me.component';
+import { BlockchainComponent } from './components/blockchain/blockchain.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { EmailMeComponent } from './components/email-me/email-me.component';
     HeaderComponent,
     FooterComponent,
     PageNotFoundComponent,
-    EmailMeComponent
+    EmailMeComponent,
+    BlockchainComponent
   ],
   imports: [
     BrowserModule,

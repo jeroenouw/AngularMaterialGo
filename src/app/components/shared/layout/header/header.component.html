@@ -24,9 +24,14 @@
       <span>Misc</span>
     </button>
 
+    <button mat-button routerLink="/blockchain" (click)="sidenav.close()">
+      <mat-icon class="misc">list_alt</mat-icon>
+      <span>Blockchain</span>
+    </button>
+
     <hr>
 
-    <div *ngIf="!authService.isAuthenticated(); else logout">
+    <div>
       <button mat-button routerLink="/signup" (click)="sidenav.close()">
         <mat-icon class="signup">person_add</mat-icon>
         <span>Signup</span>
@@ -38,8 +43,8 @@
       </button>
     </div>
 
-    <ng-template #logout>
-      <button mat-button (click)="onLogout()" (click)="sidenav.close()">
+    <ng-template>
+      <button mat-button (click)="sidenav.close()">
         <mat-icon class="logout">lock_outline</mat-icon>
         <span>Logout</span>
       </button>
@@ -63,13 +68,13 @@
   <!-- Menu -->
   <span class="spacer"></span>
 
-  <div *ngIf="!authService.isAuthenticated();">
+  <div>
     <app-date-pipe></app-date-pipe>
   </div>
 
   <span class="spacer-light"></span>
 
-    <div *ngIf="!authService.isAuthenticated(); else loggedin">
+    <div>
       <a routerLink="/signup"><mat-icon>person_add</mat-icon></a>
       <a routerLink="/login"><mat-icon>lock_open</mat-icon></a>
     </div>

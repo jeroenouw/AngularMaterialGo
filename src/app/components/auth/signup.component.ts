@@ -23,27 +23,27 @@ export class SignupComponent implements OnInit {
   onSignup(form: NgForm) {
     const email = form.value.email;
     const password = form.value.password;
-    this.authService.signupUser(email, password);
+    // this.authService.signupUser(email, password);
   }
 
   onSignupGoogle(form: NgForm) {
     this.loading = true;
-    this.authService.signUpWithGoogle();
+    // this.authService.signUpWithGoogle();
   }
 
   onSignupTwitter(form: NgForm) {
     this.loading = true;
-    this.authService.signUpWithTwitter();
+    // this.authService.signUpWithTwitter();
   }
 
   onSignupFacebook(form: NgForm) {
     this.loading = true;
-    this.authService.signUpWithFacebook();
+    // this.authService.signUpWithFacebook();
   }
 
   onSignupGithub(form: NgForm) {
     this.loading = true;
-    this.authService.signUpWithGithub();
+    // this.authService.signUpWithGithub();
   }
 
 }

@@ -1,27 +1,24 @@
-<!-- Spinner -->
 <!-- <mat-spinner *ngIf="loading" mode="indeterminate"></mat-spinner> -->
-<!-- Progress bar -->
 <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 
 <mat-card>
-  <h3>Social login</h3>
-  <form (ngSubmit)="onSignInGoogle(g)" #g="ngForm">
+  <!-- <h3>Social login</h3>
+  <form (ngSubmit)="" #g="ngForm">
     <mat-card-actions class="button">
-      <!-- mat-raised-button class="primary" -->
       <button class="btn btn-block btn-social btn-google" type="submit" [disabled]="!g.valid"><span class="fa fa-google"></span> Login with your Google Account</button>
     </mat-card-actions>
   </form>
-  <form (ngSubmit)="onSignInTwitter(t)" #t="ngForm">
+  <form (ngSubmit)="" #t="ngForm">
     <mat-card-actions class="button">
       <button class="btn btn-block btn-social btn-twitter" type="submit" [disabled]="!t.valid"><span class="fa fa-twitter"></span> Login with your Twitter Account</button>
     </mat-card-actions>
   </form>
-  <form (ngSubmit)="onSignInFacebook(fb)" #fb="ngForm">
+  <form (ngSubmit)="" #fb="ngForm">
     <mat-card-actions class="button">
       <button class="btn btn-block btn-social btn-facebook" type="submit" [disabled]="!fb.valid"><span class="fa fa-facebook"></span> Login with your Facebook Account</button>
     </mat-card-actions>
   </form>
-  <form (ngSubmit)="onSignInGithub(gh)" #gh="ngForm">
+  <form (ngSubmit)="" #gh="ngForm">
     <mat-card-actions class="button">
       <button class="btn btn-block btn-social btn-github" type="submit" [disabled]="!gh.valid"><span class="fa fa-github"></span> Login with your Github Account</button>
     </mat-card-actions>
@@ -30,13 +27,11 @@
   <hr>
 
   <h3>Login</h3>
-  <form (ngSubmit)="onSignin(f)" #f="ngForm">
+  <form (ngSubmit)="" #f="ngForm">
     <mat-form-field class="full-width">
-      <!--<label for ="email">Mail</label>-->
       <input matInput placeholder="Email" type="email" id="email" name="email" ngModel required>
     </mat-form-field>
     <mat-form-field class="full-width">
-      <!--<label for ="password">Password</label>-->
       <input matInput placeholder="Password" type="password" id="password" name="password" ngModel required>
     </mat-form-field>
     <mat-card-actions class="button">
@@ -47,10 +42,10 @@
   <hr>
 
   <h3>Anonymous login</h3>
-  <form (ngSubmit)="onSigninAnonymous(a)" #a="ngForm">
+  <form (ngSubmit)="" #a="ngForm">
     <mat-card-actions class="button">
       <button mat-raised-button class="primary" type="submit">Login anonymously</button>
     </mat-card-actions>
-  </form>
+  </form> -->
 
 </mat-card>

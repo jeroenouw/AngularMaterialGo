@@ -6,18 +6,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MatButtonModule, MatInputModule, MatProgressBarModule,
          MatCardModule, MatIconModule } from '@angular/material';
-import { UsersRouting } from './users.routing';
 
 // Components
 import { SignupComponent } from './signup.component';
 import { SigninComponent } from './signin.component';
-import { PhoneSigninComponent } from './phone-signin/phone-signin.component';
 
 @NgModule({
   declarations: [
     SignupComponent,
-    SigninComponent,
-    PhoneSigninComponent
+    SigninComponent
   ],
   imports: [
     CommonModule,
@@ -25,8 +22,7 @@ import { PhoneSigninComponent } from './phone-signin/phone-signin.component';
     FormsModule,
     HttpModule,
     MatButtonModule, MatInputModule, MatProgressBarModule,
-    MatCardModule, MatIconModule,
-    UsersRouting
+    MatCardModule, MatIconModule
   ],
   providers: [
   ],
@@ -35,8 +31,7 @@ import { PhoneSigninComponent } from './phone-signin/phone-signin.component';
   ],
   exports: [
     SignupComponent,
-    SigninComponent,
-    PhoneSigninComponent
+    SigninComponent
   ]
 })
 export class AuthModule {

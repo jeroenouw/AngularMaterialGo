@@ -1,0 +1,23 @@
+
+<mat-card>
+  <h3>Blockchain</h3>
+  <form #hash="ngForm" (ngSubmit)="postData(hash)">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="IPFS Hash" name="IPFSHash" [(ngModel)]="IPFSHash">
+    </mat-form-field>
+    <mat-card-actions class="button">
+      <button mat-raised-button class="primary" type="submit">Create block</button>
+    </mat-card-actions>
+  </form> <br/>
+
+  <!-- Your data {{data}}! -->
+  <div *ngFor='let dt of data | async'>
+    Block: {{dt.Index}} <br/>
+    Timestamp: {{dt.Timestamp}} <br/>
+    IPFSHash: {{dt.IPFSHash}} <br/>
+    Hash: {{dt.Hash}} <br/>
+    PrevHash: {{dt.PrevHash}} <br/>
+    Difficulty: {{dt.Difficulty}} <br/>
+    Nonce: {{dt.Nonce}} <br/><br/>
+  </div>
+</mat-card>

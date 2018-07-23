@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { MiscComponent } from './components/misc/misc.component';
+import { BlockchainComponent } from './components/blockchain/blockchain.component';
 
 // Components
 import { SignupComponent } from './components/auth/signup.component';
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
   { path: 'about', component: AboutMeComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'misc', component: MiscComponent },
+  { path: 'blockchain', component: BlockchainComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: SigninComponent },
 

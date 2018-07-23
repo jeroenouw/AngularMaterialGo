@@ -26,11 +26,10 @@ import { UserService, AlertService } from '../shared';
   ]
 })
 export class ProfileComponent implements OnInit {
-  uid = firebase.auth().currentUser.uid;
-
+  // uid = firebase.auth().currentUser.uid;
   fullImagePath: string;
-  profileTitle: string = 'My profile';
-  displayName: string = 'Your username';
+  profileTitle = 'My profile';
+  displayName = 'Your username';
   bio: any = 'Your bio';
 
   state = 'small';
@@ -43,10 +42,10 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    firebase.database().ref().child('users/' + this.uid).once('value').then((snap) => {
-      this.displayName  = snap.val().displayName, 
-      this.bio = snap.val().bio
-    });
+    // firebase.database().ref().child('users/' + this.uid).once('value').then((snap) => {
+    //   this.displayName  = snap.val().displayName,
+    //   this.bio = snap.val().bio
+    // });
   }
 
   animateImage() {
@@ -54,12 +53,12 @@ export class ProfileComponent implements OnInit {
   }
 
   userEmail() {
-    this.userService.getUserProfileInformation();
-    return firebase.auth().currentUser.email;
+    // this.userService.getUserProfileInformation();
+    // return firebase.auth().currentUser.email;
   }
 
   onPasswordReset() {
-    this.userService.sendUserPasswordResetEmail();
+    // this.userService.sendUserPasswordResetEmail();
     this.alertService.showToaster('Reset password is sent to your email');
   }
 

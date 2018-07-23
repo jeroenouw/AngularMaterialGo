@@ -12,6 +12,6 @@ export class ThirdBlockComponent  {
   titleFour = 'Material 2';
   contentFour = 'Material Design is a unified system that combines theory, resources, and tools for crafting digital experiences.';
 
-  titleFive = 'Firebase';
-  contentFive = 'Firebase is built on Google infrastructure and scales automatically, for even the largest apps.';
+  titleFive = 'Go';
+  contentFive = 'Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.';
 }

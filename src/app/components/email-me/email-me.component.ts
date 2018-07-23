@@ -13,10 +13,11 @@ export class EmailMeComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private formBuilder: FormBuilder) {
-    this.form = formBuilder.group({
-      email: ['', Validators.compose([Validators.required, EmailValidator.isValid])]
-    });
+    // private formBuilder: FormBuilder
+  ) {
+    // this.form = formBuilder.group({
+    //   email: ['', Validators.compose([Validators.required, EmailValidator.isValid])]
+    // });
   }
 
   ngOnInit() {
@@ -24,6 +25,6 @@ export class EmailMeComponent implements OnInit {
 
   onSubmit(form: NgForm) {
    const email = form.value.email;
-   this.userService.keepInTouch(email);
+  //  this.userService.keepInTouch(email);
   }
 }

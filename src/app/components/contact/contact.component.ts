@@ -19,7 +19,7 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(form: NgForm) { 
+  onSubmit(form: NgForm) {
    const company = form.value.company;
    const firstname = form.value.firstname;
    const lastname = form.value.lastname;
@@ -27,7 +27,7 @@ export class ContactComponent implements OnInit {
    const city = form.value.city;
    const postal = form.value.postal;
    const message = form.value.message;
-   this.userService.contactFormSend(company, firstname, lastname, address, city, postal, message);
+  //  this.userService.contactFormSend(company, firstname, lastname, address, city, postal, message);
   }
 
 }

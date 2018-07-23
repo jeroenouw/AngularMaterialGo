@@ -22,34 +22,34 @@ export class SigninComponent implements OnInit {
 
   onSignInGoogle(form: NgForm) {
     this.loading = true;
-    this.authService.signInWithGoogle();
+    // this.authService.signInWithGoogle();
   }
 
   onSignInTwitter(form: NgForm) {
     this.loading = true;
-    this.authService.signInWithTwitter();
+    // this.authService.signInWithTwitter();
   }
 
   onSignInFacebook(form: NgForm) {
     this.loading = true;
-    this.authService.signInWithFacebook();
+    // this.authService.signInWithFacebook();
   }
 
   onSignInGithub(form: NgForm) {
     this.loading = true;
-    this.authService.signInWithGithub();
+    // this.authService.signInWithGithub();
   }
 
   onSignin(form: NgForm) {
     this.loading = true;
     const email = form.value.email;
     const password = form.value.password;
-    this.authService.signinUser(email, password);
+    // this.authService.signinUser(email, password);
   }
 
   onSigninAnonymous(form: NgForm) {
     this.loading = true;
-    this.authService.signInAnonymous();
+    // this.authService.signInAnonymous();
   }
 
 }

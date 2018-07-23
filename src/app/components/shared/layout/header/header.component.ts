@@ -35,27 +35,27 @@ export class HeaderComponent {
     private alertService: AlertService,
     private userService: UserService
     ) {
-      this.isAuthenticated = this.authService.isAuthenticated(),
+      // this.isAuthenticated = this.authService.isAuthenticated(),
       this.angularImage = '/assets/img/angular2.png';
   }
 
   userUid() {
-    this.userService.getUserProfileInformation();
-    return firebase.auth().currentUser.uid;
+    // this.userService.getUserProfileInformation();
+    // return firebase.auth().currentUser.uid;
   }
 
   userEmail() {
-    this.userService.getUserProfileInformation();
-    return firebase.auth().currentUser.email;
+    // this.userService.getUserProfileInformation();
+    // return firebase.auth().currentUser.email;
   }
 
   userName() {
-    this.userService.getUserProfileInformation();
-    return firebase.auth().currentUser.displayName;
+    // this.userService.getUserProfileInformation();
+    // return firebase.auth().currentUser.displayName;
   }
 
   onLogout() {
-    this.authService.logout();
+    // this.authService.logout();
     this.alertService.showToaster('Logout succesful');
   }
 }
