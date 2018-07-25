@@ -4,6 +4,7 @@ import (
 	"html/template"
 	"log"
 	"math/rand"
+	"net/http"
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
@@ -45,15 +46,15 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// // Application serving at PORT 8080
-	// go func() {
-	// 	http.HandleFunc("/", index)
-	// 	http.HandleFunc("/admin", admin)
-	// 	http.HandleFunc("/signup", signup)
-	// 	http.HandleFunc("/signin", signin)
-	// 	http.HandleFunc("/signout", authorized(signout))
-	// 	http.ListenAndServe(":8080", nil)
-	// }()
+	// Application serving at PORT 4000
+	go func() {
+		http.HandleFunc("/", index)
+		http.HandleFunc("/admin", admin)
+		http.HandleFunc("/signup", signup)
+		http.HandleFunc("/signin", signin)
+		http.HandleFunc("/signout", authorized(signout))
+		http.ListenAndServe(":4000", nil)
+	}()
 
 	// Blockchain serving at PORT 3000
 	go func() {
@@ -66,7 +67,7 @@ func main() {
 		blockchain = append(blockchain, genesisBlock)
 		mutex.Unlock()
 	}()
-	log.Fatal(runServer())
+	log.Fatal(runBlockchainServer())
 }
 
 func randomHash() string {

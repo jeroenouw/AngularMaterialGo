@@ -3,10 +3,10 @@
   <h3>Blockchain</h3>
   <form #hash="ngForm" (ngSubmit)="postData(hash)">
     <mat-form-field class="full-width">
-      <input matInput placeholder="IPFS Hash" name="IPFSHash" [(ngModel)]="IPFSHash">
+      <input matInput placeholder="IPFS Hash" name="IPFSHash" [(ngModel)]="IPFSHash" required>
     </mat-form-field>
     <mat-card-actions class="button">
-      <button mat-raised-button class="primary" type="submit">Create block</button>
+      <button mat-raised-button class="primary" type="submit" [disabled]="hash.invalid">Create block</button>
     </mat-card-actions>
   </form> <br/>
 

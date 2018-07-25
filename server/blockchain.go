@@ -153,12 +153,12 @@ func handleWriteBlock(w http.ResponseWriter, req *http.Request) {
 
 func makeMuxRouter() http.Handler {
 	muxRouter := mux.NewRouter()
-	muxRouter.HandleFunc("/", handleReadBlockchain).Methods("GET")
-	muxRouter.HandleFunc("/", handleWriteBlock).Methods("POST")
+	muxRouter.HandleFunc("/api", handleReadBlockchain).Methods("GET")
+	muxRouter.HandleFunc("/api", handleWriteBlock).Methods("POST")
 	return muxRouter
 }
 
-func runServer() error {
+func runBlockchainServer() error {
 	mux := makeMuxRouter()
 
 	c := cors.New(cors.Options{
@@ -166,7 +166,7 @@ func runServer() error {
 	})
 	handler := c.Handler(mux)
 
-	httpAddr := os.Getenv("ADDR")
+	httpAddr := os.Getenv("BLOCKADDR")
 	log.Println("Listening on ", httpAddr)
 	s := &http.Server{
 		Addr:           ":" + httpAddr,

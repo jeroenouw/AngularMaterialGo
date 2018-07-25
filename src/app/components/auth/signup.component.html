@@ -24,19 +24,18 @@
     </mat-card-actions>
   </form>
 
-  <hr />
-  <h3>Or sign up with your email</h3>
+  <hr /> -->
 
-  <form (ngSubmit)="" #f="ngForm">
+  <h3>Signup</h3>
+  <form (ngSubmit)="onSignup(f)" #f="ngForm">
     <mat-form-field class="full-width">
-      <input matInput placeholder="Email" type="email" id="email" name="email" ngModel required>
+      <input matInput placeholder="Username" type="text" id="username" name="username" ngModel required>
     </mat-form-field>
     <mat-form-field class="full-width">
       <input matInput placeholder="Password" type="password" id="password" name="password" ngModel required>
     </mat-form-field>
     <mat-card-actions class="button">
-      <button mat-raised-button class="primary" type="submit" [disabled]="!f.valid">Register</button>
+      <button mat-raised-button class="primary" type="submit" [disabled]="!f.valid">Signup</button>
     </mat-card-actions>
   </form>
-  -->
 </mat-card>

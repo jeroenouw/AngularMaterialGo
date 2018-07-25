@@ -24,12 +24,12 @@
     </mat-card-actions>
   </form>
 
-  <hr>
+  <hr> -->
 
   <h3>Login</h3>
-  <form (ngSubmit)="" #f="ngForm">
+  <form (ngSubmit)="onSignin(f)" #f="ngForm">
     <mat-form-field class="full-width">
-      <input matInput placeholder="Email" type="email" id="email" name="email" ngModel required>
+      <input matInput placeholder="Username" type="text" id="username" name="username" ngModel required>
     </mat-form-field>
     <mat-form-field class="full-width">
       <input matInput placeholder="Password" type="password" id="password" name="password" ngModel required>
@@ -39,6 +39,7 @@
     </mat-card-actions>
   </form>
 
+  <!-- 
   <hr>
 
   <h3>Anonymous login</h3>

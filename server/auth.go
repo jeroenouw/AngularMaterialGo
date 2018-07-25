@@ -8,8 +8,8 @@ import (
 )
 
 func index(w http.ResponseWriter, req *http.Request) {
-	u := getUser(w, req)
-	tpl.ExecuteTemplate(w, "index.gohtml", u)
+	// u := getUser(w, req)
+	// tpl.ExecuteTemplate(w, "index.gohtml", u)
 }
 
 func admin(w http.ResponseWriter, req *http.Request) {
@@ -22,7 +22,7 @@ func admin(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, "Only for admins", http.StatusForbidden)
 		return
 	}
-	tpl.ExecuteTemplate(w, "admin.gohtml", u)
+	// tpl.ExecuteTemplate(w, "admin.gohtml", u)
 }
 
 func signup(w http.ResponseWriter, req *http.Request) {
@@ -67,7 +67,7 @@ func signup(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	tpl.ExecuteTemplate(w, "signup.gohtml", u)
+	// tpl.ExecuteTemplate(w, "signup.gohtml", u)
 }
 
 func signin(w http.ResponseWriter, req *http.Request) {
@@ -76,7 +76,7 @@ func signin(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	var u user
+	// var u user
 
 	if req.Method == http.MethodPost {
 		un := req.FormValue("username")
@@ -107,7 +107,7 @@ func signin(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	tpl.ExecuteTemplate(w, "signin.gohtml", u)
+	// tpl.ExecuteTemplate(w, "signin.gohtml", u)
 }
 
 func signout(w http.ResponseWriter, req *http.Request) {
@@ -122,7 +122,7 @@ func signout(w http.ResponseWriter, req *http.Request) {
 	}
 
 	http.SetCookie(w, c)
-	http.Redirect(w, req, "/signin", http.StatusSeeOther)
+	// http.Redirect(w, req, "/signin", http.StatusSeeOther)
 }
 
 func authorized(h http.HandlerFunc) http.HandlerFunc {

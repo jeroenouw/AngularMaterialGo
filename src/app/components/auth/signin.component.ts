@@ -20,6 +20,13 @@ export class SigninComponent implements OnInit {
 
   }
 
+  onSignin(form: NgForm) {
+    this.loading = true;
+    const username = form.value.username;
+    const password = form.value.password;
+    this.authService.loginUser(username, password);
+  }
+
   onSignInGoogle(form: NgForm) {
     this.loading = true;
     // this.authService.signInWithGoogle();
@@ -38,13 +45,6 @@ export class SigninComponent implements OnInit {
   onSignInGithub(form: NgForm) {
     this.loading = true;
     // this.authService.signInWithGithub();
-  }
-
-  onSignin(form: NgForm) {
-    this.loading = true;
-    const email = form.value.email;
-    const password = form.value.password;
-    // this.authService.signinUser(email, password);
   }
 
   onSigninAnonymous(form: NgForm) {

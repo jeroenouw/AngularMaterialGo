@@ -79,11 +79,11 @@
       <a routerLink="/login"><mat-icon>lock_open</mat-icon></a>
     </div>
 
-    <ng-template #loggedin>
+    <!-- <ng-template #loggedin> -->
         <h4>(User: {{userEmail()}})</h4>
 
         <button mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon>more_vert</mat-icon>
+          <mat-icon>more_vert</mat-icon>
         </button>
 
         <mat-menu #menu="matMenu" >
@@ -124,7 +124,7 @@
           </a>
         </mat-menu>
 
-      </ng-template>
+      <!-- </ng-template> -->
 </mat-toolbar>
 
 <mat-tab-group>
