@@ -24,7 +24,7 @@ export class SigninComponent implements OnInit {
     this.loading = true;
     const username = form.value.username;
     const password = form.value.password;
-    this.authService.loginUser(username, password);
+    this.authService.signinUser(username, password);
   }
 
   onSignInGoogle(form: NgForm) {

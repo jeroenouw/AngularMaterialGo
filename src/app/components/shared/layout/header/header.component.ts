@@ -55,7 +55,6 @@ export class HeaderComponent {
   }
 
   onLogout() {
-    // this.authService.logout();
-    this.alertService.showToaster('Logout succesful');
+    this.authService.logout();
   }
 }
