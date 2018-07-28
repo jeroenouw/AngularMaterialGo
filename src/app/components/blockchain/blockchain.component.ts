@@ -1,30 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs/subscription';
 
-import { BlockchainService } from '../shared';
+import { AlertService, BlockchainService } from '../shared';
 
 @Component({
   selector: 'app-blockchain',
   templateUrl: './blockchain.component.html',
   styleUrls: ['./blockchain.component.scss']
 })
-export class BlockchainComponent implements OnInit {
+export class BlockchainComponent implements OnInit, OnDestroy {
+  @Input() loading = false;
+  private subscription: Subscription;
+
   data;
   IPFSHash;
   errorMessage: string;
 
-  constructor(private _blockchainService: BlockchainService) {}
+  constructor(
+    private alertService: AlertService,
+    private blockchainService: BlockchainService) {
+    }
 
   ngOnInit() {
-    this.data = this._blockchainService.getBlockchainData();
+    this.data = this.blockchainService.getBlockchainData();
   }
 
-  postData(form: NgForm) {
-    this._blockchainService.postBlockchainData({IPFSHash: this.IPFSHash})
+  postBlock(form: NgForm) {
+    this.loading = true;
+    this. subscription = this.blockchainService.postBlockchainData({IPFSHash: this.IPFSHash})
       .subscribe(
         data => this.IPFSHash = JSON.stringify(data),
         error => this.errorMessage = <any>error,
-        () => console.log('Post finished')
+        () => this.postBlockFinished()
       );
+  }
+
+  postBlockFinished() {
+    this.alertService.showToaster('Block created, please refresh!');
+    this.loading = false;
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

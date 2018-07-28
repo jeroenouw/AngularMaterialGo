@@ -22,9 +22,9 @@ export class SigninComponent implements OnInit {
 
   onSignin(form: NgForm) {
     this.loading = true;
-    const username = form.value.username;
+    const email = form.value.email;
     const password = form.value.password;
-    this.authService.signinUser(username, password);
+    this.authService.signinUser(email, password);
   }
 
   onSignInGoogle(form: NgForm) {

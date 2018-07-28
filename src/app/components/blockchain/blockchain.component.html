@@ -1,9 +1,10 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 
 <mat-card>
   <h3>Blockchain</h3>
-  <form #hash="ngForm" (ngSubmit)="postData(hash)">
+  <form #hash="ngForm" (ngSubmit)="postBlock(hash)">
     <mat-form-field class="full-width">
-      <input matInput placeholder="IPFS Hash" name="IPFSHash" [(ngModel)]="IPFSHash" required>
+      <input matInput placeholder="IPFS Hash" name="IPFSHash" ngModel required>
     </mat-form-field>
     <mat-card-actions class="button">
       <button mat-raised-button class="primary" type="submit" [disabled]="hash.invalid">Create block</button>

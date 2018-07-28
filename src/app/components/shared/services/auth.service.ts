@@ -10,7 +10,7 @@ export class AuthService {
   headers: HttpHeaders;
   options: any;
 
-  API_URL = 'http://localhost:4000';
+  API_URL = 'http://localhost:4000/api';
   TOKEN_KEY = 'token';
 
   constructor(
@@ -18,8 +18,7 @@ export class AuthService {
     private http: HttpClient,
     private alertService: AlertService,
     private userService: UserService) {
-      this.headers = new HttpHeaders({ 'Content-Type': 'application/json',
-      'Accept': 'q=0.8;application/json;q=0.9', 'Cache-Control': 'no-cache' });
+      this.headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' });
       this.options = ({ headers: this.headers });
   }
 
@@ -27,8 +26,8 @@ export class AuthService {
   //   return localStorage.getItem(this.TOKEN_KEY);
   // }
 
-  signinUser(username: string, password: string) {
-    const body = { username: username, password: password };
+  signinUser(email: string, password: string) {
+    const body = { email: email, password: password };
     return this.http.post(this.API_URL + '/login', body, this.options).subscribe(
       (res: any) => {
         localStorage.setItem(this.TOKEN_KEY, res.token);
@@ -38,7 +37,7 @@ export class AuthService {
     );
   }
 
-  get isAuthenticated() {
+  isAuthenticated() {
     return localStorage.getItem(this.TOKEN_KEY);
   }
 
