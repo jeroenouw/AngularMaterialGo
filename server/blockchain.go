@@ -22,15 +22,18 @@ import (
 type block struct {
 	Index      int
 	Timestamp  string
-	IPFSHash   string
+	Data       data
 	Hash       string
 	PrevHash   string
 	Difficulty int
 	Nonce      string
 }
 
-type message struct {
-	IPFSHash string
+type data struct {
+	UID    string
+	Email  string
+	User   string
+	Action string
 }
 
 var (
@@ -41,21 +44,24 @@ var (
 const difficulty = 1
 
 func calculateHash(block block) string {
-	record := strconv.Itoa(block.Index) + block.Timestamp + block.IPFSHash + block.PrevHash + block.Nonce
+	record := strconv.Itoa(block.Index) + block.Timestamp + block.Data.User + block.Data.Action + block.PrevHash + block.Nonce
 	h := sha256.New()
 	h.Write([]byte(record))
 	hashed := h.Sum(nil)
 	return hex.EncodeToString(hashed)
 }
 
-func generateBlock(oldBlock block, IPFSHash string) (block, error) {
+func generateBlock(oldBlock block, UID string, Email string, User string, Action string) (block, error) {
 	var newBlock block
 
 	t := time.Now()
 
 	newBlock.Index = oldBlock.Index + 1
-	newBlock.Timestamp = t.String()
-	newBlock.IPFSHash = IPFSHash
+	newBlock.Timestamp = t.Format("2006-01-02 15:04:05")
+	newBlock.Data.UID = UID
+	newBlock.Data.Email = Email
+	newBlock.Data.User = User
+	newBlock.Data.Action = Action
 	newBlock.PrevHash = oldBlock.Hash
 	newBlock.Difficulty = difficulty
 
@@ -126,19 +132,19 @@ func handleReadBlockchain(w http.ResponseWriter, req *http.Request) {
 
 func handleWriteBlock(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	var m message
+	var d data
 
 	decoder := json.NewDecoder(req.Body)
-	if err := decoder.Decode(&m); err != nil {
+	if err := decoder.Decode(&d); err != nil {
 		respondWithJSON(w, req, http.StatusBadRequest, req.Body)
 		return
 	}
 	defer req.Body.Close()
 
 	mutex.Lock()
-	newBlock, err := generateBlock(blockchain[len(blockchain)-1], m.IPFSHash)
+	newBlock, err := generateBlock(blockchain[len(blockchain)-1], d.UID, d.Email, d.User, d.Action)
 	if err != nil {
-		respondWithJSON(w, req, http.StatusInternalServerError, m)
+		respondWithJSON(w, req, http.StatusInternalServerError, d)
 		return
 	}
 	mutex.Unlock()

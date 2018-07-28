@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Subscription } from 'rxjs/subscription';
 
 import { AlertService, BlockchainService } from '../shared';
 
@@ -11,10 +10,12 @@ import { AlertService, BlockchainService } from '../shared';
 })
 export class BlockchainComponent implements OnInit, OnDestroy {
   @Input() loading = false;
-  private subscription: Subscription;
-
-  data;
-  IPFSHash;
+  data: Object;
+  uid: string;
+  email: string;
+  user: string;
+  action: string;
+  postBlockchainData: Object;
   errorMessage: string;
 
   constructor(
@@ -28,20 +29,19 @@ export class BlockchainComponent implements OnInit, OnDestroy {
 
   postBlock(form: NgForm) {
     this.loading = true;
-    this. subscription = this.blockchainService.postBlockchainData({IPFSHash: this.IPFSHash})
-      .subscribe(
-        data => this.IPFSHash = JSON.stringify(data),
-        error => this.errorMessage = <any>error,
-        () => this.postBlockFinished()
-      );
+    this.alertService.showToaster('Check command line for mining progress!');
+    this.blockchainService.postBlockchainData({uid: this.uid, email: this.email, user: this.user, action: this.action}).subscribe(
+      data => this.postBlockchainData = JSON.stringify(data),
+      error => this.errorMessage = <any>error,
+      () => this.postBlockFinished()
+    );
   }
 
   postBlockFinished() {
-    this.alertService.showToaster('Block created, please refresh!');
+    this.alertService.showToaster('Block created, please refresh this page!');
     this.loading = false;
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 }

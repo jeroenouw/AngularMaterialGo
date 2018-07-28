@@ -30,7 +30,7 @@ func signin(w http.ResponseWriter, req *http.Request) {
 	var userData map[string]string
 	json.Unmarshal(body, &userData)
 
-	if userData["email"] == "test@gmail.com" && userData["password"] == "tester" {
+	if userData["email"] == "ngxmatgo@gmail.com" && userData["password"] == "jeroenouw" {
 		claims := jwtData{
 			StandardClaims: jwt.StandardClaims{
 				ExpiresAt: time.Now().Add(time.Hour).Unix(),

@@ -9,7 +9,7 @@ export class AlertService {
 
   showToaster(msg: string) {
     this.snackBar.open(msg, null, {
-      duration: 3000,
+      duration: 4000,
     });
   }
 }

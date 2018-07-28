@@ -4,21 +4,51 @@
   <h3>Blockchain</h3>
   <form #hash="ngForm" (ngSubmit)="postBlock(hash)">
     <mat-form-field class="full-width">
-      <input matInput placeholder="IPFS Hash" name="IPFSHash" ngModel required>
+      <input matInput placeholder="UID" name="UID" [(ngModel)]="uid" required>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Email" name="Email" [(ngModel)]="email" required>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput placeholder="User" name="User" [(ngModel)]="user" required>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Action" name="Action" [(ngModel)]="action" required>
     </mat-form-field>
     <mat-card-actions class="button">
-      <button mat-raised-button class="primary" type="submit" [disabled]="hash.invalid">Create block</button>
+      <button mat-raised-button class="primary" [disabled]="hash.invalid">Create block manually</button>
     </mat-card-actions>
-  </form> <br/>
+  </form>
+  <br/>
 
-  <!-- Your data {{data}}! -->
   <div *ngFor='let dt of data | async'>
-    Block: {{dt.Index}} <br/>
-    Timestamp: {{dt.Timestamp}} <br/>
-    IPFSHash: {{dt.IPFSHash}} <br/>
-    Hash: {{dt.Hash}} <br/>
-    PrevHash: {{dt.PrevHash}} <br/>
-    Difficulty: {{dt.Difficulty}} <br/>
-    Nonce: {{dt.Nonce}} <br/><br/>
+    <ul>
+      <li>
+        <strong>Block:</strong> {{dt.Index}}</li>
+      <li>
+        <strong>Timestamp:</strong> {{dt.Timestamp}}</li>
+      <li>
+        <strong>Data:</strong>
+        <ul>
+          <li>
+            <strong>UID:</strong> {{dt.Data.UID}} </li>
+          <li>
+            <strong>Email:</strong> {{dt.Data.Email}} </li>
+          <li>
+            <strong>User:</strong> {{dt.Data.User}} </li>
+          <li>
+            <strong>Action:</strong> {{dt.Data.Action}} </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Hash:</strong> {{dt.Hash}} </li>
+      <li>
+        <strong>PrevHash:</strong> {{dt.PrevHash}} </li>
+      <li>
+        <strong>Difficulty:</strong> {{dt.Difficulty}} </li>
+      <li>
+        <strong>Nonce:</strong> {{dt.Nonce}} </li>
+    </ul>
+    <hr>
   </div>
 </mat-card>
