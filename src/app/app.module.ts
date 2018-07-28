@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatInputModule, MatSnackBarModule,
          MatToolbarModule, MatDialogModule, MatSidenavModule, MatNativeDateModule,
-         MatCardModule, MatTabsModule, MatIconModule } from '@angular/material';
+         MatCardModule, MatTabsModule, MatIconModule, MatProgressBarModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -56,7 +56,7 @@ import { BlockchainComponent } from './components/blockchain/blockchain.componen
     BrowserAnimationsModule,
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatInputModule, MatSnackBarModule,
     MatToolbarModule, MatDialogModule, MatSidenavModule, MatNativeDateModule,
-    MatCardModule, MatTabsModule, MatIconModule,
+    MatCardModule, MatTabsModule, MatIconModule, MatProgressBarModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
