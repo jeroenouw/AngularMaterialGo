@@ -167,7 +167,7 @@ func runBlockchainServer() error {
 	handler := c.Handler(mux)
 
 	httpAddr := os.Getenv("BLOCKADDR")
-	log.Println("Listening on ", httpAddr)
+	log.Println("Blockchain listening on ", httpAddr, "/api")
 	s := &http.Server{
 		Addr:           ":" + httpAddr,
 		Handler:        handler,

@@ -4,7 +4,6 @@ import (
 	"html/template"
 	"log"
 	"math/rand"
-	"net/http"
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
@@ -36,7 +35,6 @@ var (
 const sessionLength int = 60
 
 func init() {
-	// tpl = template.Must(template.ParseGlob("templates/*"))
 	dbSessionsCleaned = time.Now()
 }
 
@@ -48,12 +46,7 @@ func main() {
 
 	// Application serving at PORT 4000
 	go func() {
-		http.HandleFunc("/", index)
-		http.HandleFunc("/admin", admin)
-		http.HandleFunc("/signup", signup)
-		http.HandleFunc("/signin", signin)
-		http.HandleFunc("/signout", authorized(signout))
-		http.ListenAndServe(":4000", nil)
+		runJWTServer()
 	}()
 
 	// Blockchain serving at PORT 3000
