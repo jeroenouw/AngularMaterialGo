@@ -4,10 +4,12 @@
 
 First clone this repo: `git clone https://github.com/jeroenouw/AngularMaterialGo.git`.  
 Change directory to this project  
+Please use [this Chrome CORS plugin](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en) which is necessary while developing.  
 Run `npm install` to install all the dependencies.  
-Run `npm start` to run this project (Angular client, Golang blockchain and api).
-Client side: navigate to `http://localhost:4200/` to see Angular. The app will automatically reload if you change any of the source files.  
-Server side: navigate to `http://localhost:3000/` to see the Golang blockchain and to `http://localhost:4000/` to see the Golang api.  
+Run `npm start` to run this project (Angular client, Golang blockchain and api).  
+You will get a pop-up notification, select "Allow".  
+Client side: navigate to `http://localhost:4200/` to see Angular application. The app will automatically reload if you change any of the source files.  
+Server side: navigate to `http://localhost:3000/` to see the Golang blockchain and to `http://localhost:4000/` to see the Golang api. Re-run `npm start` to see changes made in Go.  
   
 ## Development
 
@@ -35,9 +37,9 @@ Following npm scripts are available in `package.json`:
 
 Golang files can be found in `./server` directory.
   
-To build the development environment, run `npm run dist`.
+To build the development environment (only client), run `npm run dist`.
 
-## Production
+## Production (client only)
 
 To build the production environment, run `npm run prod`.  
 To build the production environment without hashing in the files, run `npm run prod:hashless`. This will give packages without a hash.  

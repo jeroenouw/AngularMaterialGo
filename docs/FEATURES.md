@@ -2,18 +2,18 @@
 
 ## Features in this project
 
-* Angular 6 client
+* Angular 6 client/front-end
 * Material Design
-* Golang server (Authentication and blockchain)
-* Automated client documentation (compodoc)
+* Golang server/back-end (Blockchain and JWT authentication)
+* Automated generated client documentation (compodoc)
 * Home page
 * About page
-* Contact page
 * Misc page
 * Blockchain page
 * 404 page
 * Authentication (Email)
 * Auth Guard
+* Auth Interceptor
 * Profile
 * Profile image animation
 * Profile settings

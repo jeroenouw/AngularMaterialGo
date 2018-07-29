@@ -5,7 +5,7 @@
 [![stars](https://img.shields.io/github/stars/jeroenouw/AngularMaterialGo.svg)](https://github.com/jeroenouw/AngularMaterialGo/stargazers)
 [![downloads](https://img.shields.io/npm/dy/ngxmatgo.svg)]()
 
-# Angular 6 | Material Design | Go - Starter kit (WORK IN PROGRESS)
+# Angular 6 | Material Design | Go - Starter kit
 
 A full stack starter app containing [Angular 6](https://angular.io), [Material](https://material.io/) and [Go](https://golang.org/). Cloned from [AngularMaterialFirebase](https://github.com/jeroenouw/AngularMaterialFirebase)
 
