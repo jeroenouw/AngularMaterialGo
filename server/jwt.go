@@ -2,10 +2,12 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 
 	jwt "github.com/dgrijalva/jwt-go"
@@ -37,7 +39,9 @@ func signin(w http.ResponseWriter, req *http.Request) {
 			},
 
 			CustomClaims: map[string]string{
-				"userid": "u1",
+				// https://www.guidgenerator.com/online-guid-generator.aspx
+				// Guid 1, Hyphens, RFC 7515, URL encode
+				"UID": "1a678b49-0162-4cc6-8bdd-4e5b76c67249",
 			},
 		}
 
@@ -65,9 +69,53 @@ func signin(w http.ResponseWriter, req *http.Request) {
 	}
 }
 
+func account(w http.ResponseWriter, req *http.Request) {
+	authToken := req.Header.Get("Authorization")
+	authArr := strings.Split(authToken, " ")
+
+	if len(authArr) != 2 {
+		log.Println("Authentication header is invalid: " + authToken)
+		http.Error(w, "Request failed!", http.StatusUnauthorized)
+	}
+
+	jwtToken := authArr[1]
+	claims, err := jwt.ParseWithClaims(jwtToken, &jwtData{}, func(token *jwt.Token) (interface{}, error) {
+		if jwt.SigningMethodHS256 != token.Method {
+			return nil, errors.New("Invalid signing algorithm")
+		}
+		return []byte(secret), nil
+	})
+
+	if err != nil {
+		log.Println(err)
+		http.Error(w, "Request failed!", http.StatusUnauthorized)
+	}
+
+	data := claims.Claims.(*jwtData)
+	UID := data.CustomClaims["UID"]
+	jsonData, err := getAccountData(UID)
+	if err != nil {
+		log.Println(err)
+		http.Error(w, "Request failed!", http.StatusUnauthorized)
+	}
+
+	w.Write(jsonData)
+}
+
+func getAccountData(UID string) ([]byte, error) {
+	myData := data{"1a678b49-0162-4cc6-8bdd-4e5b76c67249", "ngxmatgo@gmail.com", "genesisuser", "basic task"}
+	json, err := json.Marshal(myData)
+	if err != nil {
+		return nil, err
+	}
+
+	return json, nil
+}
+
 func runJWTServer() error {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/api/login", signin)
+	mux.HandleFunc("/api/account", account)
 	c := cors.New(cors.Options{
 		AllowedOrigins: []string{"http://localhost:4200"},
 	})
