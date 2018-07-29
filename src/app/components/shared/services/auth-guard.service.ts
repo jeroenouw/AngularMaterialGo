@@ -5,8 +5,11 @@ import { AuthService } from './auth.service';
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
-  constructor(private authService: AuthService,
-    private router: Router) { }
+
+  constructor(
+    private authService: AuthService,
+    private router: Router) {
+  }
 
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (!this.authService.isAuthenticated()) {

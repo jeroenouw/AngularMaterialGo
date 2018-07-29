@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { AlertService } from './alert.service';
-import { UserService } from './user.service';
 
 @Injectable()
 export class AuthService {
@@ -16,15 +15,14 @@ export class AuthService {
   constructor(
     private router: Router,
     private http: HttpClient,
-    private alertService: AlertService,
-    private userService: UserService) {
+    private alertService: AlertService) {
       this.headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' });
       this.options = ({ headers: this.headers });
   }
 
-  // get token() {
-  //   return localStorage.getItem(this.TOKEN_KEY);
-  // }
+  get token() {
+    return localStorage.getItem(this.TOKEN_KEY);
+  }
 
   signinUser(email: string, password: string) {
     const body = { email: email, password: password };
@@ -37,12 +35,20 @@ export class AuthService {
     );
   }
 
+  getAccount() {
+    return this.http.get(this.API_URL + '/account', this.options);
+  }
+
   isAuthenticated() {
     return localStorage.getItem(this.TOKEN_KEY);
   }
 
-  logout() {
+  deleteToken() {
     localStorage.removeItem(this.TOKEN_KEY);
+  }
+
+  logout() {
+    this.deleteToken();
     this.router.navigate(['/home']);
     this.alertService.showToaster('Logout succesful');
   }
