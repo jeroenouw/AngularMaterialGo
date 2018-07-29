@@ -4,7 +4,7 @@
 
 * Angular 6 client/front-end
 * Material Design
-* Golang server/back-end (Blockchain and JWT authentication)
+* Golang server/back-end (Proof-of-Work blockchain and JWT authentication)
 * Automated generated client documentation (compodoc)
 * Home page
 * About page

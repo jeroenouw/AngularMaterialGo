@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router } from '@angular/router';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
-import { UserService, AlertService } from '../shared';
+import { AuthService, BlockchainService } from '../shared';
 
 @Component({
   selector: 'app-profile',
@@ -19,47 +19,44 @@ import { UserService, AlertService } from '../shared';
       })),
 
       transition('small <=> large', animate('500ms ease-in', keyframes([
-        style({opacity: 0, transform: 'translateY(-80%)', offset: 0}),
-        style({opacity: 1, transform: 'translateY(25px)', offset: 1})
+        style({ opacity: 0, transform: 'translateY(-80%)', offset: 0 }),
+        style({ opacity: 1, transform: 'translateY(25px)', offset: 1 })
       ]))),
     ]),
   ]
 })
 export class ProfileComponent implements OnInit {
-  // uid = firebase.auth().currentUser.uid;
+  data: any;
   fullImagePath: string;
-  profileTitle = 'My profile';
-  displayName = 'Your username';
-  bio: any = 'Your bio';
-
   state = 'small';
 
   constructor(
-    private route: ActivatedRoute,
-    private userService: UserService,
-    private alertService: AlertService) {
+    private router: Router,
+    private authService: AuthService,
+    private blockchainService: BlockchainService) {
     this.fullImagePath = '/assets/img/mb-bg-04.png';
   }
 
   ngOnInit() {
-    // firebase.database().ref().child('users/' + this.uid).once('value').then((snap) => {
-    //   this.displayName  = snap.val().displayName,
-    //   this.bio = snap.val().bio
-    // });
+    this.authService.getAccount().subscribe(
+      (res: any) => {
+        this.data = res;
+      },
+      (err: any) => {
+        console.error(err);
+        this.router.navigateByUrl('/profile');
+      });
+  }
+
+  postBlockPerAction() {
+    return this.blockchainService.postBlockPerAction(
+      '1a678b49-0162-4cc6-8bdd-4e5b76c67249', 'ngxmatgo@gmail.com', 'genesisuser', 'clicked profile picture'
+    );
   }
 
   animateImage() {
     this.state = (this.state === 'small' ? 'large' : 'small');
-  }
-
-  userEmail() {
-    // this.userService.getUserProfileInformation();
-    // return firebase.auth().currentUser.email;
-  }
-
-  onPasswordReset() {
-    // this.userService.sendUserPasswordResetEmail();
-    this.alertService.showToaster('Reset password is sent to your email');
+    this.postBlockPerAction();
   }
 
 }

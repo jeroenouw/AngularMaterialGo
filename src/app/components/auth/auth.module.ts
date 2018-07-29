@@ -3,7 +3,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { MatButtonModule, MatInputModule, MatProgressBarModule,
          MatCardModule, MatIconModule } from '@angular/material';
 
@@ -20,7 +19,6 @@ import { SigninComponent } from './signin.component';
     CommonModule,
     BrowserModule,
     FormsModule,
-    HttpModule,
     MatButtonModule, MatInputModule, MatProgressBarModule,
     MatCardModule, MatIconModule
   ],

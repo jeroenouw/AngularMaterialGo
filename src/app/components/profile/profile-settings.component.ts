@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { AuthService, AlertService, UserService } from '../shared';
+import { AlertService, BlockchainService } from '../shared';
 
 @Component({
   selector: 'app-profile-settings',
@@ -9,38 +9,28 @@ import { AuthService, AlertService, UserService } from '../shared';
   styleUrls: ['./profile-settings.component.scss']
 })
 export class ProfileSettingsComponent implements OnInit {
-  // uid = firebase.auth().currentUser.uid;
   displayName = 'Your username';
   bio: any = 'Your bio';
 
   constructor(
-    private authService: AuthService,
     private alertService: AlertService,
-    private userService: UserService) {
+    private blockchainService: BlockchainService) {
   }
 
   ngOnInit() {
-    // firebase.database().ref().child(`users/${this.uid}`).once('value').then((snap) => {
-    //   this.displayName = snap.val().displayName;
-    //   this.bio = snap.val().bio;
-    // });
-  }
-
-  onPasswordReset() {
-    // this.userService.sendUserPasswordResetEmail();
-    this.alertService.showToaster('Reset password is sent to your email');
   }
 
   onUpdateUserInfo(form: NgForm) {
-    const displayName = form.value.displayName;
-    const bio = form.value.bio;
-    // this.userService.updateUserInfo(firebase.auth().currentUser.uid, displayName, bio);
+    // const displayName = form.value.displayName;
+    // const bio = form.value.bio;
+    this.postBlockPerAction();
     this.alertService.showToaster('Your settings are saved');
   }
 
-  onLogout() {
-    // this.authService.logout();
-    this.alertService.showToaster('Logout succesful');
+  postBlockPerAction() {
+    return this.blockchainService.postBlockPerAction(
+      '1a678b49-0162-4cc6-8bdd-4e5b76c67249', 'ngxmatgo@gmail.com', 'genesisuser', 'updated profile settings'
+    );
   }
 
 }

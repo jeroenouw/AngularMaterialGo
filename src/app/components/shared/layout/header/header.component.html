@@ -14,11 +14,6 @@
       <span>About</span>
     </button>
 
-    <button mat-button routerLink="/contact" (click)="sidenav.close()">
-      <mat-icon class="contact">email</mat-icon>
-      <span>Contact</span>
-    </button>
-
     <button mat-button routerLink="/misc" (click)="sidenav.close()">
       <mat-icon class="misc">burst_mode</mat-icon>
       <span>Misc</span>
@@ -69,21 +64,18 @@
 
   <span class="spacer-light"></span>
 
-  <div *ngIf="!authService.isAuthenticated(); else loggedin">
+  <div class="mat-chip" *ngIf="!authService.isAuthenticated(); else loggedin">
     <a routerLink="/signup"><mat-icon>person_add</mat-icon></a>
     <a routerLink="/login"><mat-icon>lock_open</mat-icon></a>
   </div>
 
   <ng-template #loggedin>
-    <!-- <h4>(User: {{userEmail()}})</h4> -->
-
     <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>more_vert</mat-icon>
     </button>
 
     <mat-menu #menu="matMenu" >
 
-      <!-- [routerLink]="['/profile', userUid(), userName()]" -->
       <a
         mat-menu-item
         routerLink="/profile"
@@ -91,13 +83,6 @@
         <mat-icon class="profile">face</mat-icon>
         <span>Profile</span>
       </a>
-
-      <!--
-      <a mat-menu-item routerLink="/messages">
-        <mat-icon class="messages">chat</mat-icon>
-        <span>Messages</span>
-      </a>
-      -->
 
       <a mat-menu-item *ngFor="let item of menuItems" href="{{item.link}}">
         <mat-icon class="login">{{item.icon}}</mat-icon>

@@ -1,6 +1,6 @@
 {
   "name": "ngxmatgo",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Jeroen Ouwehand",
   "description": "Full stack starter app with Angular 6, Material Design and Go.",
   "keywords": [
@@ -9,9 +9,11 @@
     "go",
     "golang",
     "blockchain",
+    "proof-of-work",
     "pow",
     "material",
     "starter-template",
+    "boilerplate",
     "ngx"
   ],
   "repository": "https://github.com/jeroenouw/AngularMaterialGo",

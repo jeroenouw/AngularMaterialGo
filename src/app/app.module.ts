@@ -6,7 +6,7 @@ import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatInputModule, MatS
          MatToolbarModule, MatDialogModule, MatSidenavModule, MatNativeDateModule,
          MatCardModule, MatTabsModule, MatIconModule, MatProgressBarModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Modules
 import { PipesModule } from './pipes/pipes.module';
@@ -20,10 +20,10 @@ import { MiscModule } from './components/misc/misc.module';
 import {
   FooterComponent,
   HeaderComponent,
-  UserService,
   AlertService,
   AuthGuardService,
   AuthService,
+  AuthInterceptorService,
   BlockchainService,
 } from './components/shared';
 
@@ -34,9 +34,7 @@ import { AppRoutingModule } from './app.routing';
 // Other components
 import { HomeComponent } from './components/home/home.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
-import { ContactComponent } from './components/contact/contact.component';
 import { PageNotFoundComponent } from './components/not-found/not-found.component';
-import { EmailMeComponent } from './components/email-me/email-me.component';
 import { BlockchainComponent } from './components/blockchain/blockchain.component';
 
 @NgModule({
@@ -44,11 +42,9 @@ import { BlockchainComponent } from './components/blockchain/blockchain.componen
     AppComponent,
     HomeComponent,
     AboutMeComponent,
-    ContactComponent,
     HeaderComponent,
     FooterComponent,
     PageNotFoundComponent,
-    EmailMeComponent,
     BlockchainComponent
   ],
   imports: [
@@ -68,10 +64,14 @@ import { BlockchainComponent } from './components/blockchain/blockchain.componen
     MiscModule
   ],
   providers: [
-    UserService,
     AlertService,
     AuthGuardService,
     AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    },
     BlockchainService
   ],
   schemas: [

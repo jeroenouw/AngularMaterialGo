@@ -39,6 +39,10 @@ Golang files can be found in `./server` directory.
   
 To build the development environment (only client), run `npm run dist`.
 
+## Blockchain
+
+When running the Angular application, the blockchain page can be found by login and click on the top right menu. Per action (login, logout, updates, etc.) a new block is created and added to the local blockchain. You can also add manually data to a block on the blockchain page.
+
 ## Production (client only)
 
 To build the production environment, run `npm run prod`.  

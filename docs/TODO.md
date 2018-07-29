@@ -3,6 +3,7 @@
 ## To Do List
 
 * Optimisation
+* Double submit block fixing
 
 ## To Finish List (known issues)
 

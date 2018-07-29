@@ -11,7 +11,6 @@ import { PageNotFoundComponent } from './components/not-found/not-found.componen
 // Pages
 import { HomeComponent } from './components/home/home.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
-import { ContactComponent } from './components/contact/contact.component';
 import { MiscComponent } from './components/misc/misc.component';
 import { BlockchainComponent } from './components/blockchain/blockchain.component';
 
@@ -26,21 +25,17 @@ import { AuthGuardService } from './components/shared';
 
 // Routing
 const appRoutes: Routes = [
-
   // Public pages
   { path: '', redirectTo: '/home', pathMatch : 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutMeComponent },
-  { path: 'contact', component: ContactComponent },
   { path: 'misc', component: MiscComponent },
-  { path: 'blockchain', component: BlockchainComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: SigninComponent },
-
   // Protected pages
-  // { path: 'profile/:uid/:name', component: ProfileComponent, canActivate: [AuthGuardService] },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'profile-settings', component: ProfileSettingsComponent},
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]  },
+  { path: 'blockchain', component: BlockchainComponent, canActivate: [AuthGuardService] },
+  { path: 'profile-settings', component: ProfileSettingsComponent, canActivate: [AuthGuardService] },
   { path: '**', component: PageNotFoundComponent }
 ];
 

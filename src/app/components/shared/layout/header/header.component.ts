@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { AuthService, AlertService, UserService } from '../../services';
+import { AuthService, BlockchainService } from '../../services';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +20,7 @@ export class HeaderComponent {
     },
     {
       icon: 'archive',
-      title: 'Published packages',
+      title: 'NPM packages',
       link: 'https://www.npmjs.com/~jeroenouw'
     },
     {
@@ -32,29 +32,19 @@ export class HeaderComponent {
 
   constructor(
     public authService: AuthService,
-    private alertService: AlertService,
-    private userService: UserService
-    ) {
-      // this.isAuthenticated = this.authService.isAuthenticated(),
-      this.angularImage = '/assets/img/angular2.png';
+    private blockchainService: BlockchainService
+  ) {
+    this.angularImage = '/assets/img/angular2.png';
   }
 
-  userUid() {
-    // this.userService.getUserProfileInformation();
-    // return firebase.auth().currentUser.uid;
-  }
-
-  userEmail() {
-    // this.userService.getUserProfileInformation();
-    // return firebase.auth().currentUser.email;
-  }
-
-  userName() {
-    // this.userService.getUserProfileInformation();
-    // return firebase.auth().currentUser.displayName;
+  postBlockPerAction() {
+    return this.blockchainService.postBlockPerAction(
+      '1a678b49-0162-4cc6-8bdd-4e5b76c67249', 'ngxmatgo@gmail.com', 'genesisuser', 'logout'
+    );
   }
 
   onLogout() {
+    this.postBlockPerAction();
     this.authService.logout();
   }
 }

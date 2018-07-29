@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { AlertService, AuthService } from '../shared';
+import { AuthService, BlockchainService } from '../shared';
 
 @Component({
   selector: 'app-signin',
@@ -13,11 +13,10 @@ export class SigninComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private alertService: AlertService) {
+    private blockchainService: BlockchainService) {
   }
 
   ngOnInit() {
-
   }
 
   onSignin(form: NgForm) {
@@ -25,6 +24,13 @@ export class SigninComponent implements OnInit {
     const email = form.value.email;
     const password = form.value.password;
     this.authService.signinUser(email, password);
+    this.postBlockPerAction();
+  }
+
+  postBlockPerAction() {
+    return this.blockchainService.postBlockPerAction(
+      '1a678b49-0162-4cc6-8bdd-4e5b76c67249', 'ngxmatgo@gmail.com', 'genesisuser', 'login'
+    );
   }
 
   onSignInGoogle(form: NgForm) {
@@ -46,10 +52,4 @@ export class SigninComponent implements OnInit {
     this.loading = true;
     // this.authService.signInWithGithub();
   }
-
-  onSigninAnonymous(form: NgForm) {
-    this.loading = true;
-    // this.authService.signInAnonymous();
-  }
-
 }
