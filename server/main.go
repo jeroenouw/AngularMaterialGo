@@ -1,7 +1,6 @@
 package main
 
 import (
-	"html/template"
 	"log"
 	"time"
 
@@ -9,32 +8,7 @@ import (
 	"github.com/joho/godotenv"
 )
 
-type user struct {
-	userName  string
-	password  []byte
-	email     string
-	firstName string
-	lastName  string
-	role      string
-}
-
-type session struct {
-	un           string
-	lastActivity time.Time
-}
-
-var (
-	tpl               *template.Template
-	dbUsers           = map[string]user{}
-	dbSessions        = map[string]session{}
-	dbSessionsCleaned time.Time
-	hashLetters       = []int32("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
-)
-
-const sessionLength int = 60
-
 func init() {
-	dbSessionsCleaned = time.Now()
 }
 
 func main() {

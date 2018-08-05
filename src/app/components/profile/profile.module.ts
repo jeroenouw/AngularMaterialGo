@@ -2,7 +2,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatInputModule,
-         MatToolbarModule, MatCardModule, MatDialogModule } from '@angular/material';
+         MatToolbarModule, MatCardModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
 // Components
@@ -17,7 +17,7 @@ import { ProfileSettingsComponent } from './profile-settings.component';
   imports: [
     CommonModule,
     MatButtonModule, MatCheckboxModule, MatMenuModule, MatInputModule,
-    MatToolbarModule, MatCardModule, MatDialogModule,
+    MatToolbarModule, MatCardModule,
     FormsModule
   ],
   exports: [

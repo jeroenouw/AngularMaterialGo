@@ -2,7 +2,6 @@ import { Injectable, Input } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-// import { NgForm } from '@angular/forms';
 
 import { AlertService } from './alert.service';
 
@@ -48,7 +47,7 @@ export class BlockchainService {
   }
 
   postBlockPerActionFinished() {
-    this.alertService.showToaster('Block created, please refresh this page!');
+    this.alertService.showToaster('Block created!');
     this.loading = false;
   }
 
